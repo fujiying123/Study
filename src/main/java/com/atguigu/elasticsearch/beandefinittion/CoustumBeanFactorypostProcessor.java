@@ -57,6 +57,7 @@ public class CoustumBeanFactorypostProcessor implements BeanFactoryPostProcessor
             Object newInstance = aClass.newInstance();
             instance.fromXML(rootElement.asXML(),newInstance);
             beanFactory.registerSingleton(id+":"+namespace,newInstance);
+            beanFactory.autowireBean(newInstance);
         }
     }
 }
